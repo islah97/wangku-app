@@ -14,7 +14,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="WangKu">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#4f46e5"> <!-- Warna header tema aplikasi -->
+    <meta name="theme-color" content="#4f46e5">
     
     <!-- Konfigurasi Tailwind untuk Mod Gelap -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -85,12 +85,12 @@
                     <label class="block text-sm font-medium text-slate-600 dark:text-slate-300 mb-1">Kata Laluan</label>
                     <div class="relative">
                         <input type="password" id="auth-password" required placeholder="••••••••" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all">
-                        <button type="button" onclick="window.togglePassword('auth-password', 'eye-icon-auth')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                        <button type="button" onclick="togglePassword('auth-password', 'eye-icon-auth')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                             <i id="eye-icon-auth" class="fa-solid fa-eye"></i>
                         </button>
                     </div>
                     <div id="forgot-password-container" class="mt-2 text-right">
-                        <button type="button" onclick="window.openForgotModal()" class="text-xs text-indigo-500 dark:text-indigo-400 font-medium hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">Lupa kata laluan?</button>
+                        <button type="button" onclick="openForgotModal()" class="text-xs text-indigo-500 dark:text-indigo-400 font-medium hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors">Lupa kata laluan?</button>
                     </div>
                 </div>
                 <button type="submit" id="auth-submit-btn" class="w-full bg-indigo-500 dark:bg-indigo-600 text-white font-semibold rounded-2xl py-4 mt-4 shadow-md shadow-indigo-200 dark:shadow-none hover:bg-indigo-600 dark:hover:bg-indigo-500 active:scale-95 transition-all">
@@ -99,7 +99,7 @@
             </form>
 
             <div class="mt-6 text-center">
-                <button onclick="window.toggleAuthMode()" id="auth-toggle-btn" class="text-sm text-indigo-500 dark:text-indigo-400 font-medium hover:text-indigo-600">
+                <button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-sm text-indigo-500 dark:text-indigo-400 font-medium hover:text-indigo-600">
                     Belum ada akaun? Daftar sekarang
                 </button>
             </div>
@@ -117,11 +117,11 @@
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight">WangKu</h1>
-                            <p class="text-xs text-indigo-500 dark:text-indigo-400 font-semibold" id="user-greeting">Memuatkan...</p>
+                            <p class="text-xs text-indigo-500 dark:text-indigo-400 font-semibold" id="user-greeting">Selamat datang!</p>
                         </div>
                     </div>
                     <!-- Butang Profil (Header) -->
-                    <button onclick="window.openProfileModal()" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex justify-center items-center hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors shadow-sm border border-slate-100 dark:border-slate-600 overflow-hidden relative">
+                    <button onclick="openProfileModal()" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex justify-center items-center hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors shadow-sm border border-slate-100 dark:border-slate-600 overflow-hidden relative">
                         <img id="header-profile-pic" src="" class="w-full h-full object-cover hidden" alt="Profile">
                         <i id="header-profile-icon" class="fa-solid fa-user"></i>
                     </button>
@@ -158,7 +158,7 @@
 
                 <div class="flex justify-between items-end mb-4">
                     <h3 class="text-lg font-bold text-slate-800 dark:text-white">Rekod Terkini</h3>
-                    <button onclick="window.openHistoryModal()" class="text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 transition-colors">Lihat Semua</button>
+                    <button onclick="openHistoryModal()" class="text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 transition-colors">Lihat Semua</button>
                 </div>
                 
                 <div id="expense-list" class="space-y-3 pb-8">
@@ -168,7 +168,7 @@
 
             <!-- Butang Tambah (+) -->
             <div class="absolute bottom-8 left-0 right-0 flex justify-center pointer-events-none">
-                <button onclick="window.openModal()" class="pointer-events-auto bg-indigo-500 dark:bg-indigo-600 text-white w-14 h-14 rounded-full shadow-lg shadow-indigo-300 dark:shadow-none flex items-center justify-center text-2xl hover:bg-indigo-600 active:scale-90 transition-all z-20">
+                <button onclick="openModal()" class="pointer-events-auto bg-indigo-500 dark:bg-indigo-600 text-white w-14 h-14 rounded-full shadow-lg shadow-indigo-300 dark:shadow-none flex items-center justify-center text-2xl hover:bg-indigo-600 active:scale-90 transition-all z-20">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
@@ -178,7 +178,7 @@
                 <div id="modal-content" class="bg-white dark:bg-slate-800 w-full max-w-md rounded-t-[2rem] p-6 pb-8 transform translate-y-full transition-transform duration-300 shadow-2xl h-[85%] overflow-y-auto">
                     <div class="flex justify-between items-center mb-6">
                         <h3 id="modal-title" class="text-xl font-bold text-slate-800 dark:text-white">Tambah Rekod</h3>
-                        <button onclick="window.closeModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200 dark:active:bg-slate-600">
+                        <button onclick="closeModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200 dark:active:bg-slate-600">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -186,8 +186,8 @@
                     <form id="expense-form" class="space-y-4">
                         <input type="hidden" id="edit-record-id" value="">
                         <div class="flex bg-slate-100 dark:bg-slate-700/50 rounded-xl p-1 mb-2">
-                            <button type="button" id="btn-expense" class="flex-1 py-2 rounded-lg bg-white dark:bg-slate-600 shadow-sm text-rose-500 dark:text-rose-400 font-bold text-sm transition-all" onclick="window.setTxType('expense')">Keluar (-)</button>
-                            <button type="button" id="btn-income" class="flex-1 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-medium text-sm transition-all" onclick="window.setTxType('income')">Masuk (+)</button>
+                            <button type="button" id="btn-expense" class="flex-1 py-2 rounded-lg bg-white dark:bg-slate-600 shadow-sm text-rose-500 dark:text-rose-400 font-bold text-sm transition-all" onclick="setTxType('expense')">Keluar (-)</button>
+                            <button type="button" id="btn-income" class="flex-1 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-medium text-sm transition-all" onclick="setTxType('income')">Masuk (+)</button>
                         </div>
                         
                         <input type="hidden" id="tx-type" value="expense">
@@ -226,10 +226,10 @@
                                 <button type="button" onclick="document.getElementById('receipt-input').click()" class="bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 px-4 py-3 rounded-2xl text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors flex-1 flex items-center justify-center">
                                     <i class="fa-solid fa-camera mr-2"></i> Muat Naik
                                 </button>
-                                <input type="file" id="receipt-input" class="hidden" accept="image/*" onchange="window.handleReceiptUpload(event)">
+                                <input type="file" id="receipt-input" class="hidden" accept="image/*" onchange="handleReceiptUpload(event)">
                                 <div id="receipt-preview-container" class="hidden relative w-14 h-14 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0 shadow-sm">
                                     <img id="receipt-preview-img" src="" class="w-full h-full object-cover">
-                                    <button type="button" onclick="window.removeReceipt()" class="absolute top-0 right-0 bg-rose-500/90 text-white w-5 h-5 flex items-center justify-center rounded-bl-xl text-xs hover:bg-rose-600">
+                                    <button type="button" onclick="removeReceipt()" class="absolute top-0 right-0 bg-rose-500/90 text-white w-5 h-5 flex items-center justify-center rounded-bl-xl text-xs hover:bg-rose-600">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
                                 </div>
@@ -248,7 +248,7 @@
                 <div id="profile-modal-content" class="bg-white dark:bg-slate-800 w-full max-w-md rounded-t-[2rem] p-6 pb-8 transform translate-y-full transition-transform duration-300 shadow-2xl h-[90%] overflow-y-auto flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white">Profil Saya</h3>
-                        <button onclick="window.closeProfileModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200">
+                        <button onclick="closeProfileModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -260,15 +260,13 @@
                                 <img id="profile-modal-pic" src="" class="w-full h-full object-cover hidden" alt="Profile">
                                 <i id="profile-modal-icon" class="fa-solid fa-user"></i>
                                 
-                                <!-- Overlay Hover (Kamera) -->
                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <i class="fa-solid fa-camera text-white text-xl"></i>
                                 </div>
                             </div>
                         </div>
                         <p class="text-sm font-medium text-slate-500 dark:text-slate-400" id="profile-email-display">emel@anda.com</p>
-                        <!-- Input Fail Gambar (Tersembunyi) -->
-                        <input type="file" id="profile-image-input" class="hidden" accept="image/*" onchange="window.handleImageUpload(event)">
+                        <input type="file" id="profile-image-input" class="hidden" accept="image/*" onchange="handleImageUpload(event)">
                     </div>
 
                     <form id="profile-form" class="space-y-4">
@@ -281,7 +279,7 @@
                             <label class="block text-sm font-medium text-slate-600 dark:text-slate-300 mb-1">Tukar Kata Laluan (Pilihan)</label>
                             <div class="relative">
                                 <input type="password" id="profile-password" placeholder="Biarkan kosong jika tiada pertukaran" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-white rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all">
-                                <button type="button" onclick="window.togglePassword('profile-password', 'eye-icon-profile')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                                <button type="button" onclick="togglePassword('profile-password', 'eye-icon-profile')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                                     <i id="eye-icon-profile" class="fa-solid fa-eye"></i>
                                 </button>
                             </div>
@@ -303,13 +301,13 @@
                                 <p class="text-xs text-slate-500 dark:text-slate-400">Tukar tema paparan</p>
                             </div>
                         </div>
-                        <button id="dark-mode-toggle" onclick="window.toggleDarkMode()" class="w-12 h-6 bg-slate-300 dark:bg-indigo-500 rounded-full relative transition-colors duration-300">
+                        <button id="dark-mode-toggle" onclick="toggleDarkMode()" class="w-12 h-6 bg-slate-300 dark:bg-indigo-500 rounded-full relative transition-colors duration-300">
                             <div id="dark-mode-circle" class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform duration-300"></div>
                         </button>
                     </div>
                     
                     <!-- Butang Log Keluar -->
-                    <button onclick="window.logout()" class="w-full bg-rose-50 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 font-semibold rounded-2xl py-4 mt-6 shadow-sm hover:bg-rose-100 dark:hover:bg-rose-900/50 active:scale-95 transition-all border border-rose-100 dark:border-rose-900/50">
+                    <button onclick="logout()" class="w-full bg-rose-50 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 font-semibold rounded-2xl py-4 mt-6 shadow-sm hover:bg-rose-100 dark:hover:bg-rose-900/50 active:scale-95 transition-all border border-rose-100 dark:border-rose-900/50">
                         <i class="fa-solid fa-right-from-bracket mr-2"></i> Log Keluar
                     </button>
                 </div>
@@ -319,7 +317,7 @@
             <div id="history-modal" class="absolute inset-0 z-[55] hidden flex-col bg-slate-50 dark:bg-slate-900 transform translate-y-full transition-transform duration-300">
                 <div class="pt-8 pb-4 px-6 bg-white dark:bg-slate-800 shadow-sm flex items-center justify-between shrink-0 rounded-b-[2rem] transition-colors duration-300">
                     <div class="flex items-center gap-3">
-                        <button onclick="window.closeHistoryModal()" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 active:bg-slate-200">
+                        <button onclick="closeHistoryModal()" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 active:bg-slate-200">
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white">Sejarah Transaksi</h3>
@@ -328,7 +326,7 @@
                 
                 <div class="px-6 py-4 shrink-0">
                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Tapis mengikut bulan</label>
-                    <select id="history-month-filter" onchange="window.filterHistory()" class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium shadow-sm appearance-none">
+                    <select id="history-month-filter" onchange="filterHistory()" class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium shadow-sm appearance-none">
                         <option value="all">Semua Bulan</option>
                     </select>
                 </div>
@@ -349,7 +347,7 @@
                 <div id="forgot-modal-content" class="bg-white dark:bg-slate-800 w-[90%] max-w-sm rounded-3xl p-6 transform scale-95 opacity-0 transition-all duration-300 shadow-2xl">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white">Set Semula Akses</h3>
-                        <button onclick="window.closeForgotModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200">
+                        <button onclick="closeForgotModal()" class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 active:bg-slate-200">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -362,7 +360,7 @@
                             <label class="block text-sm font-medium text-slate-600 dark:text-slate-300 mb-1">Kata Laluan Baharu</label>
                             <div class="relative">
                                 <input type="password" id="forgot-password-new" required placeholder="••••••••" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-white rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-                                <button type="button" onclick="window.togglePassword('forgot-password-new', 'eye-icon-forgot')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                                <button type="button" onclick="togglePassword('forgot-password-new', 'eye-icon-forgot')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                                     <i id="eye-icon-forgot" class="fa-solid fa-eye"></i>
                                 </button>
                             </div>
@@ -378,7 +376,7 @@
             <div id="receipt-view-modal" class="absolute inset-0 z-[80] hidden items-center justify-center bg-slate-900/90 backdrop-blur-md transition-opacity">
                 <div class="relative w-[90%] max-w-sm flex flex-col items-center">
                     <div class="w-full flex justify-end mb-4">
-                        <button onclick="window.closeReceiptView()" class="w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center hover:bg-slate-700 transition-colors shadow-lg border border-slate-600">
+                        <button onclick="closeReceiptView()" class="w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center hover:bg-slate-700 transition-colors shadow-lg border border-slate-600">
                             <i class="fa-solid fa-xmark text-lg"></i>
                         </button>
                     </div>
@@ -389,21 +387,25 @@
         </div> <!-- End App Container -->
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'wangku-default';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-
-        let app, db, auth;
+    <script>
+        // -- Pemboleh Ubah Global & Storan Tempatan --
         let currentUser = null;
         let expensesData = [];
         let isLoginMode = true;
         let expenseChartInstance = null; 
         let currentReceiptDataUrl = null; 
-        let unsubscribeExpenses = null;
+
+        function getUsersDB() {
+            return JSON.parse(localStorage.getItem('wangku_users_db')) || {};
+        }
+
+        function saveUsersDB(db) {
+            localStorage.setItem('wangku_users_db', JSON.stringify(db));
+        }
+
+        function getUserExpensesKey(email) {
+            return `wangku_expenses_${email}`;
+        }
 
         // -- Pengurusan Mod Gelap (Dark Mode) --
         function updateDarkModeUI() {
@@ -416,15 +418,13 @@
                     circle.classList.remove('translate-x-6');
                 }
             }
-            
-            // Kemaskini warna font carta jika ada
             if(expenseChartInstance) {
                 Chart.defaults.color = isDark ? '#cbd5e1' : '#64748b';
                 expenseChartInstance.update();
             }
         }
 
-        window.toggleDarkMode = () => {
+        function toggleDarkMode() {
             const isDark = document.documentElement.classList.contains('dark');
             if (isDark) {
                 document.documentElement.classList.remove('dark');
@@ -434,57 +434,36 @@
                 localStorage.setItem('wangku_theme', 'dark');
             }
             updateDarkModeUI();
-        };
+        }
 
-        // Initialize Theme UI on load
         window.addEventListener('DOMContentLoaded', () => {
             updateDarkModeUI();
             Chart.defaults.color = document.documentElement.classList.contains('dark') ? '#cbd5e1' : '#64748b';
             Chart.defaults.font.family = "'Poppins', sans-serif";
-            initCloud(); // Mula sambungan awan bila UI sedia
+            setDefaultDate();
+            initAuth();
         });
 
-        async function initCloud() {
-            if (Object.keys(firebaseConfig).length === 0) {
-                console.warn("Konfigurasi awan tiada.");
-                return;
-            }
-            app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-            try {
-                if (typeof __initial_auth_token !== 'undefined') {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                initAuth();
-            } catch (error) { 
-                console.error("Cloud error", error); 
-                showToast("Gagal menyambung ke awan", "error");
-            }
-        }
-
-        // -- Inisialisasi Auth --
-        async function initAuth() {
+        // -- Inisialisasi Auth (Local Storage) --
+        function initAuth() {
             const savedEmail = localStorage.getItem('wangku_session');
-            if (savedEmail && auth && auth.currentUser) {
-                try {
-                    const userDoc = await getDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wangku_users', savedEmail));
-                    if (userDoc.exists()) {
-                        currentUser = { uid: savedEmail, displayName: userDoc.data().name, profilePic: userDoc.data().profilePic };
-                        showApp();
-                        document.getElementById('user-greeting').innerText = `Hai, ${currentUser.displayName}! 👋`;
-                        updateProfilePictures();
-                        loadExpensesFromCloud();
-                        return;
-                    }
-                } catch(e) { console.error(e); }
+            const usersDB = getUsersDB();
+
+            if (savedEmail && usersDB[savedEmail]) {
+                currentUser = { 
+                    uid: savedEmail, 
+                    displayName: usersDB[savedEmail].name, 
+                    profilePic: usersDB[savedEmail].profilePic || null 
+                };
+                showApp();
+                document.getElementById('user-greeting').innerText = `Hai, ${currentUser.displayName}! 👋`;
+                updateProfilePictures();
+                loadExpensesFromLocal();
+            } else {
+                localStorage.removeItem('wangku_session');
+                currentUser = null;
+                showAuth();
             }
-            
-            localStorage.removeItem('wangku_session');
-            currentUser = null;
-            showAuth();
         }
 
         // -- Paparan Gambar Profil --
@@ -511,7 +490,7 @@
         }
 
         // -- Muat Naik Gambar Profil --
-        window.handleImageUpload = (event) => {
+        function handleImageUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
 
@@ -522,7 +501,6 @@
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
                     
-                    // Kecilkan ke maksimum 200x200 untuk elak storage penuh
                     const MAX_SIZE = 200;
                     let width = img.width;
                     let height = img.height;
@@ -543,81 +521,65 @@
                     canvas.height = height;
                     ctx.drawImage(img, 0, 0, width, height);
                     
-                    // Tukar ke format data (Base64)
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
                     
-                    // Simpan
                     currentUser.profilePic = dataUrl;
-                    updateProfilePictures();
-                    showToast("Gambar profil dikemas kini! Menyimpan ke awan...");
-                    
-                    if (auth && auth.currentUser) {
-                        setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wangku_users', currentUser.uid), { profilePic: dataUrl }, { merge: true })
-                            .then(() => showToast("Gambar disimpan di awan!"))
-                            .catch(e => console.error(e));
+                    const usersDB = getUsersDB();
+                    if (usersDB[currentUser.uid]) {
+                        usersDB[currentUser.uid].profilePic = dataUrl;
+                        saveUsersDB(usersDB);
                     }
+                    
+                    updateProfilePictures();
+                    showToast("Gambar profil dikemas kini!");
                 }
                 img.src = e.target.result;
             }
             reader.readAsDataURL(file);
-        };
+        }
 
         // -- Auth Form (Login/Daftar) --
-        document.getElementById('auth-form').addEventListener('submit', async (e) => {
+        document.getElementById('auth-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('auth-email').value;
+            const email = document.getElementById('auth-email').value.trim().toLowerCase();
             const password = document.getElementById('auth-password').value;
-            const name = document.getElementById('auth-name').value;
-            const btn = document.getElementById('auth-submit-btn');
+            const name = document.getElementById('auth-name').value.trim();
 
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyambung...';
-            btn.disabled = true;
+            const usersDB = getUsersDB();
 
-            try {
-                if (!auth || !auth.currentUser) throw new Error("Awan tidak sedia");
-                const userRef = doc(db, 'artifacts', appId, 'public', 'data', 'wangku_users', email);
-                const userSnap = await getDoc(userRef);
-
-                if (isLoginMode) {
-                    if (userSnap.exists() && userSnap.data().password === password) {
-                        localStorage.setItem('wangku_session', email);
-                        showToast("Berjaya log masuk!");
-                        initAuth();
-                    } else {
-                        showToast("E-mel atau kata laluan salah.", "error");
-                    }
+            if (isLoginMode) {
+                if (usersDB[email] && usersDB[email].password === password) {
+                    localStorage.setItem('wangku_session', email);
+                    showToast("Berjaya log masuk!");
+                    initAuth();
                 } else {
-                    if (userSnap.exists()) {
-                        showToast("E-mel telah digunakan.", "error");
-                    } else {
-                        await setDoc(userRef, { name: name, password: password, profilePic: null });
-                        localStorage.setItem('wangku_session', email);
-                        showToast("Akaun berjaya didaftarkan!");
-                        initAuth();
-                    }
+                    showToast("E-mel atau kata laluan salah.", "error");
                 }
-            } catch (err) {
-                showToast("Ralat sistem awan", "error");
-                console.error(err);
+            } else {
+                if (usersDB[email]) {
+                    showToast("E-mel telah digunakan.", "error");
+                } else {
+                    usersDB[email] = { name: name, password: password, profilePic: null };
+                    saveUsersDB(usersDB);
+                    localStorage.setItem('wangku_session', email);
+                    showToast("Akaun berjaya didaftarkan!");
+                    initAuth();
+                }
             }
-            
-            btn.innerHTML = isLoginMode ? 'Log Masuk' : 'Daftar Akaun';
-            btn.disabled = false;
         });
 
-        window.logout = () => {
+        function logout() {
             localStorage.removeItem('wangku_session');
             currentUser = null;
             expensesData = []; 
-            if (unsubscribeExpenses) unsubscribeExpenses();
             document.getElementById('auth-form').reset();
-            window.closeProfileModal();
+            closeProfileModal();
             updateUI();
             showToast("Berjaya log keluar.");
             initAuth();
-        };
+        }
 
-        window.toggleAuthMode = () => {
+        function toggleAuthMode() {
             isLoginMode = !isLoginMode;
             const nameField = document.getElementById('name-field');
             const submitBtn = document.getElementById('auth-submit-btn');
@@ -638,7 +600,7 @@
                 submitBtn.innerText = 'Daftar Akaun';
                 toggleBtn.innerText = 'Sudah ada akaun? Log masuk';
             }
-        };
+        }
 
         function showAuth() {
             document.getElementById('auth-container').classList.remove('-translate-y-full');
@@ -652,28 +614,22 @@
             document.getElementById('app-container').classList.add('opacity-100', 'pointer-events-auto');
         }
 
-        // -- Data & UI Perbelanjaan --
-        function loadExpensesFromCloud() {
-            if (!currentUser || !auth.currentUser) return;
-            if (unsubscribeExpenses) unsubscribeExpenses();
-            
-            const expRef = collection(db, 'artifacts', appId, 'public', 'data', 'wangku_expenses');
-            unsubscribeExpenses = onSnapshot(expRef, (snapshot) => {
-                const allData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                
-                // Tapis (filter) rekod dari awan untuk akaun semasa sahaja
-                expensesData = allData.filter(d => d.userEmail === currentUser.uid);
-                expensesData.sort((a, b) => b.timestamp - a.timestamp);
-                
-                updateUI();
-                
-                const historyModal = document.getElementById('history-modal');
-                if (!historyModal.classList.contains('hidden')) {
-                    renderHistoryList(document.getElementById('history-month-filter').value);
-                }
-            }, (error) => {
-                console.error("Ralat membaca rekod:", error);
-            });
+        // -- Data & UI Perbelanjaan (Local Storage) --
+        function loadExpensesFromLocal() {
+            if (!currentUser) return;
+            const stored = localStorage.getItem(getUserExpensesKey(currentUser.uid));
+            expensesData = stored ? JSON.parse(stored) : [];
+            expensesData.sort((a, b) => b.timestamp - a.timestamp);
+            updateUI();
+        }
+
+        function saveExpensesToLocal() {
+            if (!currentUser) return;
+            try {
+                localStorage.setItem(getUserExpensesKey(currentUser.uid), JSON.stringify(expensesData));
+            } catch (e) {
+                showToast("Storan telefon penuh! Cuba padam rekod lama atau gambar resit.", "error");
+            }
         }
 
         function updateUI() {
@@ -722,36 +678,36 @@
                 const amountStyle = isIncome ? 'text-emerald-500 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400';
                 const amountPrefix = isIncome ? '+RM' : '-RM';
             
-            let receiptBtnHtml = item.receipt 
-                ? `<button onclick="window.viewReceipt('${item.id}')" class="flex items-center gap-1 text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-lg mt-1 hover:bg-slate-200"><i class="fa-solid fa-receipt"></i> Resit</button>` 
-                : '';
+                let receiptBtnHtml = item.receipt 
+                    ? `<button onclick="viewReceipt('${item.id}')" class="flex items-center gap-1 text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-lg mt-1 hover:bg-slate-200"><i class="fa-solid fa-receipt"></i> Resit</button>` 
+                    : '';
 
-            const card = document.createElement('div');
-            card.className = "bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between";
-            card.innerHTML = `
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl ${iconInfo.bg} flex items-center justify-center text-xl shadow-sm shrink-0">
-                        ${iconInfo.icon}
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between";
+                card.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl ${iconInfo.bg} flex items-center justify-center text-xl shadow-sm shrink-0">
+                            ${iconInfo.icon}
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-700 dark:text-slate-200">${item.category}</h4>
+                            <p class="text-xs text-slate-400 dark:text-slate-500 line-clamp-1">${dateStr} • ${item.description || 'Tiada keterangan'}</p>
+                            ${receiptBtnHtml}
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-semibold text-slate-700 dark:text-slate-200">${item.category}</h4>
-                        <p class="text-xs text-slate-400 dark:text-slate-500 line-clamp-1">${dateStr} • ${item.description || 'Tiada keterangan'}</p>
-                        ${receiptBtnHtml}
+                    <div class="flex flex-col items-end justify-between min-h-[48px]">
+                        <span class="font-bold ${amountStyle} whitespace-nowrap">${amountPrefix} ${amt.toFixed(2)}</span>
+                        <div class="flex gap-2 mt-2">
+                            <button class="text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="openEditModal('${item.id}')" title="Edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button class="text-slate-300 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="deleteRecord('${item.id}')" title="Padam">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col items-end justify-between min-h-[48px]">
-                    <span class="font-bold ${amountStyle} whitespace-nowrap">${amountPrefix} ${amt.toFixed(2)}</span>
-                    <div class="flex gap-2 mt-2">
-                        <button class="text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="window.openEditModal('${item.id}')" title="Edit">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                        <button class="text-slate-300 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="window.deleteRecord('${item.id}')" title="Padam">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-            listContainer.appendChild(card);
+                `;
+                listContainer.appendChild(card);
             });
             
             balanceElement.innerText = (totalIncome - totalExpense).toFixed(2);
@@ -806,12 +762,15 @@
         }
 
         // -- Borang Rekod Baru --
-        document.getElementById('expense-form').addEventListener('submit', async (e) => {
+        document.getElementById('expense-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            if (!currentUser || !auth.currentUser) return;
+            if (!currentUser) return;
 
             const editId = document.getElementById('edit-record-id').value;
+            const docId = editId ? editId : 'exp_' + Date.now() + Math.random().toString(36).substr(2, 6);
+            
             const newRecord = {
+                id: docId,
                 userEmail: currentUser.uid,
                 type: document.getElementById('tx-type').value,
                 amount: document.getElementById('amount').value,
@@ -822,40 +781,43 @@
                 timestamp: editId ? expensesData.find(d => d.id === editId).timestamp : Date.now()
             };
 
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan...';
-            submitBtn.disabled = true;
+            if (editId) {
+                const idx = expensesData.findIndex(d => d.id === editId);
+                if (idx !== -1) expensesData[idx] = newRecord;
+            } else {
+                expensesData.unshift(newRecord);
+            }
 
-            try {
-                const docId = editId ? editId : 'exp_' + Date.now() + Math.random().toString(36).substr(2, 6);
-                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wangku_expenses', docId), newRecord);
-                
-                showToast(editId ? "Rekod dikemas kini!" : "Berjaya disimpan!");
-                
-                document.getElementById('amount').value = '';
-                document.getElementById('description').value = '';
-                document.getElementById('edit-record-id').value = '';
-                window.removeReceipt();
-                setDefaultDate();
-                window.closeModal();
-            } catch (err) {
-                console.error(err);
-                showToast("Ralat menyimpan data", "error");
+            expensesData.sort((a, b) => b.timestamp - a.timestamp);
+            saveExpensesToLocal();
+            updateUI();
+
+            const historyModal = document.getElementById('history-modal');
+            if (!historyModal.classList.contains('hidden')) {
+                renderHistoryList(document.getElementById('history-month-filter').value);
             }
             
-            submitBtn.innerHTML = 'Simpan Rekod';
-            submitBtn.disabled = false;
+            showToast(editId ? "Rekod dikemas kini!" : "Berjaya disimpan!");
+            
+            document.getElementById('amount').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('edit-record-id').value = '';
+            removeReceipt();
+            setDefaultDate();
+            closeModal();
         });
 
-        window.deleteRecord = async (id) => {
-            if (!currentUser || !auth.currentUser) return;
-            try {
-                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wangku_expenses', id));
-                showToast("Rekod dipadam.");
-            } catch (err) {
-                console.error(err);
-                showToast("Gagal memadam rekod", "error");
+        function deleteRecord(id) {
+            if (!currentUser) return;
+            expensesData = expensesData.filter(item => item.id !== id);
+            saveExpensesToLocal();
+            updateUI();
+
+            const historyModal = document.getElementById('history-modal');
+            if (!historyModal.classList.contains('hidden')) {
+                renderHistoryList(document.getElementById('history-month-filter').value);
             }
+            showToast("Rekod dipadam.");
         }
 
         // -- Logik UI & Ikon --
@@ -869,7 +831,7 @@
             }
         }
 
-        window.setTxType = (type) => {
+        function setTxType(type) {
             const btnExpense = document.getElementById('btn-expense');
             const btnIncome = document.getElementById('btn-income');
             const typeInput = document.getElementById('tx-type');
@@ -886,25 +848,25 @@
                 btnExpense.className = "flex-1 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-medium text-sm transition-all hover:bg-slate-200 dark:hover:bg-slate-600/50";
                 categorySelect.innerHTML = `<option value="Gaji">💰 Gaji</option><option value="Elaun">💵 Elaun</option><option value="Bonus">🎉 Bonus</option><option value="Perniagaan">🏪 Perniagaan</option><option value="Lain-lain">📥 Lain-lain</option>`;
             }
-        };
+        }
 
         // -- Pengurusan Modals & Views --
-        window.openHistoryModal = () => {
+        function openHistoryModal() {
             const modal = document.getElementById('history-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             setTimeout(() => { modal.classList.remove('translate-y-full'); }, 10);
             populateHistoryFilters();
             renderHistoryList('all');
-        };
+        }
 
-        window.closeHistoryModal = () => {
+        function closeHistoryModal() {
             const modal = document.getElementById('history-modal');
             modal.classList.add('translate-y-full');
             setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 300);
-        };
+        }
 
-        window.filterHistory = () => renderHistoryList(document.getElementById('history-month-filter').value);
+        function filterHistory() { renderHistoryList(document.getElementById('history-month-filter').value); }
 
         function populateHistoryFilters() {
             const filter = document.getElementById('history-month-filter');
@@ -941,7 +903,7 @@
                 const amountStyle = isIncome ? 'text-emerald-500 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400';
                 
                 let receiptBtnHtml = item.receipt 
-                    ? `<button onclick="window.viewReceipt('${item.id}')" class="flex items-center gap-1 text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-lg mt-1 hover:bg-slate-200"><i class="fa-solid fa-receipt"></i> Resit</button>` 
+                    ? `<button onclick="viewReceipt('${item.id}')" class="flex items-center gap-1 text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-lg mt-1 hover:bg-slate-200"><i class="fa-solid fa-receipt"></i> Resit</button>` 
                     : '';
 
                 const card = document.createElement('div');
@@ -960,10 +922,10 @@
                     <div class="flex flex-col items-end justify-between min-h-[48px]">
                         <span class="font-bold ${amountStyle} whitespace-nowrap">${isIncome ? '+' : '-'}RM ${amt.toFixed(2)}</span>
                         <div class="flex gap-2 mt-2">
-                            <button class="text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="window.openEditModal('${item.id}')" title="Edit">
+                            <button class="text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="openEditModal('${item.id}')" title="Edit">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
-                            <button class="text-slate-300 dark:text-slate-500 hover:text-rose-500 mt-2 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="window.deleteRecord('${item.id}')" title="Padam">
+                            <button class="text-slate-300 dark:text-slate-500 hover:text-rose-500 mt-2 text-xs w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center transition-colors shadow-sm" onclick="deleteRecord('${item.id}')" title="Padam">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </div>
@@ -973,27 +935,27 @@
             });
         }
 
-        window.openModal = () => {
+        function openModal() {
             document.getElementById('modal-title').innerText = 'Tambah Rekod';
             document.getElementById('edit-record-id').value = '';
             document.getElementById('amount').value = '';
             document.getElementById('description').value = '';
-            window.removeReceipt();
+            removeReceipt();
             setDefaultDate();
             
             const modal = document.getElementById('add-modal');
             const content = document.getElementById('modal-content');
             modal.classList.remove('hidden'); modal.classList.add('flex');
             setTimeout(() => { content.classList.remove('translate-y-full'); }, 10);
-        };
+        }
 
-        window.openEditModal = (id) => {
+        function openEditModal(id) {
             const record = expensesData.find(item => item.id === id);
             if (!record) return;
 
             document.getElementById('modal-title').innerText = 'Edit Rekod';
             document.getElementById('edit-record-id').value = record.id;
-            window.setTxType(record.type);
+            setTxType(record.type);
             document.getElementById('amount').value = record.amount;
             document.getElementById('category').value = record.category;
             document.getElementById('date').value = record.date;
@@ -1004,24 +966,24 @@
                 document.getElementById('receipt-preview-img').src = currentReceiptDataUrl;
                 document.getElementById('receipt-preview-container').classList.remove('hidden');
             } else {
-                window.removeReceipt();
+                removeReceipt();
             }
 
             const modal = document.getElementById('add-modal');
             const content = document.getElementById('modal-content');
             modal.classList.remove('hidden'); modal.classList.add('flex');
             setTimeout(() => { content.classList.remove('translate-y-full'); }, 10);
-        };
+        }
 
-        window.closeModal = () => {
+        function closeModal() {
             const modal = document.getElementById('add-modal');
             const content = document.getElementById('modal-content');
             content.classList.add('translate-y-full');
             setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 300);
-        };
+        }
 
         // -- Pengurusan Resit (Imej) --
-        window.handleReceiptUpload = (event) => {
+        function handleReceiptUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
 
@@ -1032,7 +994,6 @@
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
                     
-                    // Kecilkan kualiti/saiz resit supaya data tak berat
                     const MAX_SIZE = 500;
                     let width = img.width;
                     let height = img.height;
@@ -1053,7 +1014,7 @@
                     canvas.height = height;
                     ctx.drawImage(img, 0, 0, width, height);
                     
-                    currentReceiptDataUrl = canvas.toDataURL('image/jpeg', 0.6); // 60% kualiti
+                    currentReceiptDataUrl = canvas.toDataURL('image/jpeg', 0.6);
                     
                     document.getElementById('receipt-preview-img').src = currentReceiptDataUrl;
                     document.getElementById('receipt-preview-container').classList.remove('hidden');
@@ -1061,31 +1022,31 @@
                 img.src = e.target.result;
             }
             reader.readAsDataURL(file);
-        };
+        }
 
-        window.removeReceipt = () => {
+        function removeReceipt() {
             currentReceiptDataUrl = null;
             document.getElementById('receipt-input').value = '';
             document.getElementById('receipt-preview-container').classList.add('hidden');
             document.getElementById('receipt-preview-img').src = '';
-        };
+        }
 
-        window.viewReceipt = (id) => {
+        function viewReceipt(id) {
             const record = expensesData.find(item => item.id === id);
             if (record && record.receipt) {
                 document.getElementById('receipt-full-img').src = record.receipt;
                 const modal = document.getElementById('receipt-view-modal');
                 modal.classList.remove('hidden'); modal.classList.add('flex');
             }
-        };
+        }
 
-        window.closeReceiptView = () => {
+        function closeReceiptView() {
             const modal = document.getElementById('receipt-view-modal');
             modal.classList.add('hidden'); modal.classList.remove('flex');
             document.getElementById('receipt-full-img').src = '';
-        };
+        }
 
-        window.openProfileModal = () => {
+        function openProfileModal() {
             if (!currentUser) return;
             const modal = document.getElementById('profile-modal');
             const content = document.getElementById('profile-modal-content');
@@ -1097,85 +1058,66 @@
 
             modal.classList.remove('hidden'); modal.classList.add('flex');
             setTimeout(() => { content.classList.remove('translate-y-full'); }, 10);
-        };
-        window.closeProfileModal = () => {
+        }
+
+        function closeProfileModal() {
             const modal = document.getElementById('profile-modal');
             const content = document.getElementById('profile-modal-content');
             content.classList.add('translate-y-full');
             setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 300);
-        };
+        }
 
-        window.openForgotModal = () => {
+        function openForgotModal() {
             const modal = document.getElementById('forgot-modal');
             const content = document.getElementById('forgot-modal-content');
             modal.classList.remove('hidden'); modal.classList.add('flex');
             setTimeout(() => { content.classList.remove('scale-95', 'opacity-0'); content.classList.add('scale-100', 'opacity-100'); }, 10);
-        };
-        window.closeForgotModal = () => {
+        }
+
+        function closeForgotModal() {
             const modal = document.getElementById('forgot-modal');
             const content = document.getElementById('forgot-modal-content');
             content.classList.remove('scale-100', 'opacity-100'); content.classList.add('scale-95', 'opacity-0');
             setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.getElementById('forgot-form').reset(); }, 300);
-        };
+        }
 
-        document.getElementById('forgot-form').addEventListener('submit', async (e) => {
+        document.getElementById('forgot-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('forgot-email').value;
+            const email = document.getElementById('forgot-email').value.trim().toLowerCase();
             const newPass = document.getElementById('forgot-password-new').value;
-            const btn = e.target.querySelector('button[type="submit"]');
             
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...';
-            btn.disabled = true;
-
-            try {
-                if (!auth || !auth.currentUser) throw new Error("Awan tidak sedia");
-                const userRef = doc(db, 'artifacts', appId, 'public', 'data', 'wangku_users', email);
-                const userSnap = await getDoc(userRef);
-                
-                if (userSnap.exists()) {
-                    await setDoc(userRef, { password: newPass }, { merge: true });
-                    showToast("Kata laluan berjaya ditukar!");
-                    window.closeForgotModal();
-                } else {
-                    showToast("E-mel tidak dijumpai.", "error");
-                }
-            } catch (err) {
-                showToast("Ralat pelayan awan", "error");
+            const usersDB = getUsersDB();
+            if (usersDB[email]) {
+                usersDB[email].password = newPass;
+                saveUsersDB(usersDB);
+                showToast("Kata laluan berjaya ditukar!");
+                closeForgotModal();
+            } else {
+                showToast("E-mel tidak dijumpai.", "error");
             }
-            
-            btn.innerHTML = 'Tukar Kata Laluan';
-            btn.disabled = false;
         });
 
-        document.getElementById('profile-form').addEventListener('submit', async (e) => {
+        document.getElementById('profile-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            if (!currentUser || !auth.currentUser) return;
+            if (!currentUser) return;
             
-            const newName = document.getElementById('profile-name').value;
+            const newName = document.getElementById('profile-name').value.trim();
             const newPassword = document.getElementById('profile-password').value;
-            const btn = e.target.querySelector('button[type="submit"]');
             
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan...';
-            btn.disabled = true;
-
-            try {
-                const updateData = { name: newName };
-                if (newPassword.trim() !== '') updateData.password = newPassword;
-                
-                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wangku_users', currentUser.uid), updateData, { merge: true });
+            const usersDB = getUsersDB();
+            if (usersDB[currentUser.uid]) {
+                usersDB[currentUser.uid].name = newName;
+                if (newPassword.trim() !== '') {
+                    usersDB[currentUser.uid].password = newPassword;
+                }
+                saveUsersDB(usersDB);
                 
                 currentUser.displayName = newName;
                 document.getElementById('user-greeting').innerText = `Hai, ${currentUser.displayName}! 👋`;
                 
-                window.closeProfileModal();
+                closeProfileModal();
                 showToast("Profil berjaya dikemas kini!");
-            } catch (err) {
-                showToast("Ralat kemas kini profil", "error");
-                console.error(err);
             }
-            
-            btn.innerHTML = 'Simpan Perubahan';
-            btn.disabled = false;
         });
 
         function showToast(message, type = "success") {
@@ -1192,15 +1134,12 @@
 
         function setDefaultDate() { document.getElementById('date').value = new Date().toISOString().split('T')[0]; }
         
-        window.togglePassword = (inputId, iconId) => {
+        function togglePassword(inputId, iconId) {
             const input = document.getElementById(inputId);
             const icon = document.getElementById(iconId);
             if (input.type === "password") { input.type = "text"; icon.classList.replace('fa-eye', 'fa-eye-slash'); } 
             else { input.type = "password"; icon.classList.replace('fa-eye-slash', 'fa-eye'); }
-        };
-
-        setDefaultDate();
-        // initAuth() akan dipanggil secara automatik sebaik sahaja awan bersedia (di dalam fungsi initCloud).
+        }
     </script>
 </body>
 </html>
