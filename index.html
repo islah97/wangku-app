@@ -322,6 +322,10 @@
                         </button>
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white">Sejarah Transaksi</h3>
                     </div>
+                    <!-- Butang Eksport Excel -->
+                    <button onclick="exportToExcel()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 shadow-sm active:scale-95 transition-all">
+                        <i class="fa-solid fa-file-excel"></i> Excel
+                    </button>
                 </div>
                 
                 <div class="px-6 py-4 shrink-0">
@@ -334,12 +338,6 @@
                 <div id="history-list-container" class="flex-1 overflow-y-auto px-6 pb-24 space-y-3">
                     <!-- Senarai -->
                 </div>
-            </div>
-
-            <!-- Toast -->
-            <div id="toast" class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-700 text-white px-6 py-3 rounded-full shadow-xl text-sm font-medium transition-all duration-300 opacity-0 pointer-events-none z-[80] flex items-center gap-2">
-                <i class="fa-solid fa-check-circle text-emerald-400"></i>
-                <span id="toast-message">Berjaya!</span>
             </div>
 
             <!-- Modal Lupa Kata Laluan -->
@@ -385,6 +383,12 @@
             </div>
 
         </div> <!-- End App Container -->
+
+        <!-- Toast (Diletakkan di luar app-container supaya kelihatan di skrin Log Masuk juga) -->
+        <div id="toast" class="absolute top-6 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-700 text-white px-6 py-3 rounded-full shadow-xl text-sm font-medium transition-all duration-300 opacity-0 pointer-events-none z-[90] flex items-center gap-2 whitespace-nowrap">
+            <i class="fa-solid fa-check-circle text-emerald-400"></i>
+            <span id="toast-message">Berjaya!</span>
+        </div>
     </div>
 
     <script>
@@ -573,6 +577,12 @@
             currentUser = null;
             expensesData = []; 
             document.getElementById('auth-form').reset();
+            
+            // Pastikan borang sentiasa ditetapkan semula ke mod Log Masuk apabila log keluar
+            if (!isLoginMode) {
+                toggleAuthMode();
+            }
+            
             closeProfileModal();
             updateUI();
             showToast("Berjaya log keluar.");
@@ -867,6 +877,51 @@
         }
 
         function filterHistory() { renderHistoryList(document.getElementById('history-month-filter').value); }
+
+        // -- Eksport Data ke Fail Excel (CSV) --
+        function exportToExcel() {
+            const filterMonth = document.getElementById('history-month-filter').value;
+            let dataToExport = filterMonth !== 'all' 
+                ? expensesData.filter(item => item.date.startsWith(filterMonth)) 
+                : expensesData;
+
+            if (dataToExport.length === 0) {
+                showToast("Tiada data untuk dieksport.", "error");
+                return;
+            }
+
+            // Tajuk lajur (Header) dalam Excel
+            let csvContent = "\uFEFF"; // BOM untuk sokongan aksara UTF-8 yang tepat di Excel
+            csvContent += "Tarikh,Jenis,Kategori,Keterangan,Jumlah (RM)\n";
+
+            // Susun data mengikut tarikh (terkini ke lama)
+            dataToExport.forEach(item => {
+                const jenis = item.type === 'income' ? 'Pendapatan (Masuk)' : 'Perbelanjaan (Keluar)';
+                // Bersihkan koma atau petikan dalam keterangan supaya tidak merosakkan lajur Excel
+                const keterangan = item.description ? `"${item.description.replace(/"/g, '""')}"` : '"Tiada keterangan"';
+                const jumlah = parseFloat(item.amount).toFixed(2);
+                
+                csvContent += `${item.date},${jenis},${item.category},${keterangan},${jumlah}\n`;
+            });
+
+            // Cipta fail dan muat turun automatik ke dalam telefon
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            
+            const namaFail = filterMonth !== 'all' 
+                ? `WangKu_Rekod_${filterMonth}.csv` 
+                : `WangKu_Semua_Rekod_${new Date().toISOString().split('T')[0]}.csv`;
+                
+            link.setAttribute("href", url);
+            link.setAttribute("download", namaFail);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast("Fail Excel berjaya dimuat turun!");
+        }
 
         function populateHistoryFilters() {
             const filter = document.getElementById('history-month-filter');
